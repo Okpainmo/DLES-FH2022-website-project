@@ -1,0 +1,256 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+============================
+google font-customization 
+============================
+*/
+
+@layer utilities {
+  .m-serif {
+    font-family: 'Merriweather', serif;
+  }
+
+  .nunito-sans {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  .montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* 
+=========================================================
+colour configuration using native tailwind css colours
+=========================================================
+*/
+
+  /* backgrounds */
+
+  .custom-background_1 {
+    @apply bg-white dark:bg-slate-900;
+  }
+
+  .custom-background_2 {
+    @apply bg-gray-100 dark:bg-slate-700;
+  }
+
+  .custom-background_3 {
+    @apply bg-gray-300 dark:bg-gray-100;
+  }
+
+  .custom-background_card {
+    @apply bg-white dark:bg-slate-700;
+  }
+
+  .custom-background_primary-stay {
+    @apply bg-slate-900;
+  }
+
+  /* customizing newsletter overlay background */
+
+  .newsletter-overlay-background_light {
+    background-color: rgba(255, 255, 255, 0.85);
+  }
+
+  .newsletter-overlay-background_dark {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  .custom-newsletter-section-background {
+    @apply newsletter-overlay-background_light dark:newsletter-overlay-background_dark;
+  }
+
+  .custom-background_black {
+    @apply bg-black;
+  }
+
+  /* texts */
+
+  .custom-default-text-color {
+    @apply text-slate-800 dark:text-gray-300;
+  }
+
+  .custom-text-color_primary {
+    @apply text-slate-800 dark:text-white;
+  }
+
+  .custom-text-color_secondary {
+    @apply text-gray-700 dark:text-gray-200;
+  }
+
+  .custom-text-color_secondary-stay {
+    @apply text-gray-400;
+  }
+
+  .custom-text-color_primary-stay {
+    @apply text-slate-800;
+  }
+
+  .custom-text-color_white {
+    @apply text-white;
+  }
+
+  /* buttons */
+
+  .custom-btn-colors_no-fill {
+    @apply border-slate-900 dark:border-white bg-white dark:bg-slate-900 hover:dark:text-slate-900 
+    hover:dark:bg-white hover:bg-slate-900 hover:text-white;
+  }
+
+  .custom-btn-colors_fill {
+    @apply bg-slate-900  dark:bg-white text-white dark:text-slate-900;
+  }
+
+  .custom-btn-colors_fill-primary-stay {
+    @apply bg-slate-900 text-white;
+  }
+
+  .custom-nav-btn-colors {
+    @apply bg-white text-slate-900 border-gray-600;
+  }
+
+  /* .custom-btn-colors_secondary_fill {
+    @apply border-gray-500  dark:border-gray-200 bg-gray-300 dark:bg-gray-200;
+  } */
+
+  /* borders */
+
+  .custom-border-color_1 {
+    @apply border-slate-800 dark:border-white;
+  }
+
+  .custom-border-color_2 {
+    @apply border-gray-300 dark:border-gray-100;
+  }
+
+  .custom-border-color_primary_no-fill {
+    @apply border-slate-800 dark:border-white;
+  }
+}
+
+/* 
+=================
+regular styles
+=================
+*/
+
+.podcast-card:nth-child(even) {
+  @apply border-x;
+}
+
+@keyframes fade-effect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fade-effect;
+  animation-duration: 0.55s;
+  animation-timing-funtion: ease;
+}
+
+/*
+@keyframes slide-in-from-top {
+  from {
+    top: 65px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+.fade-in {
+  animation-name: slide-in-from-top;
+  animation-duration: 0.85s;
+  animation-timing-funtion: ease;
+}
+*/
+
+.article .post-text p,
+.book-review .post-text p,
+.message-review .post-text p,
+.about-page .about-text p,
+.permissions .permissions-text p,
+.policy .policy-text p {
+  @apply leading-[32px] sm:mt-4;
+}
+
+.article .post-text h1,
+.book-review .post-text h1,
+.message-review .post-text h1,
+.about-page .about-text h1,
+.permissions .permissions-text h1,
+.policy .policy-text h1 {
+  @apply mt-3 sm:mt-8 sm:text-3xl text-2xl font-bold montserrat text-gray-800 dark:text-gray-100;
+}
+
+/* .about-page .about-text h1,
+.permissions .permissions-text h1,
+.policy .policy-text h1 {
+  @apply text-center;
+} */
+
+.main-navbar ul .nav-link,
+.hero-nav ul .nav-link {
+  @apply relative;
+}
+
+.main-navbar ul .nav-link:after {
+  @apply bg-slate-700 dark:bg-gray-200;
+}
+
+.hero-nav ul .nav-link:after {
+  @apply bg-white;
+}
+
+.main-navbar ul .nav-link:after,
+.hero-nav ul .nav-link:after {
+  content: '';
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -17px;
+  right: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+.main-navbar ul .nav-link:hover:after,
+.hero-nav ul .nav-link:hover:after {
+  width: 100%;
+  transition: width 0.975s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+nav .reviews:hover .reviews-dropdown {
+  display: flex;
+}
+
+.main-overlay-menu .menu-items li {
+  transition: all 0.5s ease;
+  @apply before:w-[5px] before:h-[5px] before:mr-2 before:inline-block before:bg-gray-600 
+ before:translate-y-[-20px] hover:tracking-[3px];
+}
+
+.main-overlay-menu .socials li {
+  transition: all 0.5s ease;
+  @apply hover:translate-y-[5px];
+}
+
+/* hiding carousel controls */
+
+.slick-arrow {
+  display: none !important;
+}
